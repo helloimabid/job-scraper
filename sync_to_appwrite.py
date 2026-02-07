@@ -35,9 +35,8 @@ BDJOBS_ADDED = "added_jobs.json"
 BDJOBS_REMOVED = "removed_jobs.json"
 SHOMVOB_ADDED = "shomvob_added_jobs.json"
 SHOMVOB_REMOVED = "shomvob_removed_jobs.json"
-# LinkedIn handled manually, not in automated sync
-# LINKEDIN_ADDED = "linkedin_added_jobs.json"
-# LINKEDIN_REMOVED = "linkedin_removed_jobs.json"
+LINKEDIN_ADDED = "linkedin_added_jobs.json"
+LINKEDIN_REMOVED = "linkedin_removed_jobs.json"
 
 # Appwrite batch limit
 BATCH_SIZE = 100
@@ -346,11 +345,13 @@ def sync():
     print("\n📤 Pushing new jobs...")
     push_added_jobs(databases, "bdjobs", BDJOBS_ADDED, map_bdjobs_job)
     push_added_jobs(databases, "shomvob", SHOMVOB_ADDED, map_shomvob_job)
+    push_added_jobs(databases, "linkedin", LINKEDIN_ADDED, map_linkedin_job)
 
     # ── Remove deleted jobs ──
     print("\n🗑 Removing deleted jobs...")
     push_removed_jobs(databases, "bdjobs", BDJOBS_REMOVED)
     push_removed_jobs(databases, "shomvob", SHOMVOB_REMOVED)
+    push_removed_jobs(databases, "linkedin", LINKEDIN_REMOVED)
 
     print("\n✅ Appwrite sync complete!")
 

@@ -12,7 +12,7 @@ permissions:
 jobs:
   scrape-and-sync:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 60
 
     steps:
       - name: Checkout repository
@@ -38,6 +38,13 @@ jobs:
         continue-on-error: true
         run: python shomvob.py
 
+      - name: Run LinkedIn scraper
+        continue-on-error: true
+        env:
+          TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+        run: python linkedin.py
+
       - name: Sync to Appwrite
         env:
           APPWRITE_ENDPOINT: ${{ secrets.APPWRITE_ENDPOINT }}
@@ -53,5 +60,6 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add output.json added_jobs.json removed_jobs.json
           git add shomvob_output.json shomvob_added_jobs.json shomvob_removed_jobs.json
+          git add linkedin_output.json linkedin_added_jobs.json linkedin_removed_jobs.json linkedin_state.json
           git diff --cached --quiet || git commit -m "chore: update scraped job data [skip ci]"
           git push
