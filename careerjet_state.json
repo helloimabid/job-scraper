@@ -1,20 +1,23 @@
 {
-  "run_count": 2,
-  "last_run": "2026-02-08T01:19:06.517372",
+  "run_count": 3,
+  "last_run": "2026-02-08T03:45:18.135672",
   "ai_keywords_cache": [],
   "used_ai_keywords": [
-    "ERP Analyst",
-    "ERP Accountant",
-    "Financial Controller",
-    "Insurance Underwriter",
     "Risk Manager",
-    "Banking Officer",
-    "Insurance Auditor",
     "Credit Manager",
-    "SAP Consultant",
+    "Tax Consultant",
+    "Billing Executive",
+    "Banking Analyst",
+    "Banking Officer",
+    "ERP Analyst",
+    "Financial Controller",
+    "Insurance Auditor",
     "MIS Executive",
+    "SAP Consultant",
+    "Billing Officer",
+    "Insurance Underwriter",
     "Invoicing Specialist",
-    "Billing Executive"
+    "ERP Accountant"
   ],
   "used_ai_locations": [
     "Malaysia",
@@ -27,38 +30,33 @@
     "Bogra"
   ],
   "last_keywords": [
-    "Cost Accountant",
-    "Management Accountant",
-    "Payroll",
-    "Treasury",
-    "CFO",
-    "Chartered Accountant",
-    "ACCA",
-    "CPA",
-    "Budget Analyst",
-    "Compliance Officer",
-    "Accounting",
-    "Finance",
-    "Insurance Underwriter",
-    "ERP Analyst",
-    "Billing Executive"
+    "Accountant",
+    "Senior Accountant",
+    "Junior Accountant",
+    "Finance Officer",
+    "Finance Manager",
+    "Financial Analyst",
+    "Audit",
+    "Internal Auditor",
+    "Tax Accountant",
+    "Accounts Payable",
+    "Accounts Receivable",
+    "Bookkeeper",
+    "Billing Officer",
+    "Banking Analyst",
+    "Tax Consultant"
   ],
   "last_locations": [
     "Bangladesh",
-    "Rajshahi",
-    "Khulna",
-    "Gazipur",
-    "Dubai",
-    "Mumbai"
+    "Narayanganj",
+    "Comilla",
+    "Rangpur"
   ],
   "last_ai_keywords": [
-    "Insurance Underwriter",
-    "ERP Analyst",
-    "Billing Executive"
+    "Billing Officer",
+    "Banking Analyst",
+    "Tax Consultant"
   ],
-  "last_ai_locations": [
-    "Dubai",
-    "Mumbai"
-  ],
+  "last_ai_locations": [],
   "jobs_found_this_run": 0
 }
