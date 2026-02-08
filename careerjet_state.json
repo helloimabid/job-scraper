@@ -1,62 +1,63 @@
 {
-  "run_count": 3,
-  "last_run": "2026-02-08T03:45:18.135672",
+  "run_count": 4,
+  "last_run": "2026-02-08T06:35:47.336221",
   "ai_keywords_cache": [],
   "used_ai_keywords": [
     "Risk Manager",
+    "Insurance Auditor",
     "Credit Manager",
+    "SAP Consultant",
     "Tax Consultant",
-    "Billing Executive",
-    "Banking Analyst",
+    "Billing Officer",
+    "MIS Executive",
+    "Financial Controller",
     "Banking Officer",
     "ERP Analyst",
-    "Financial Controller",
-    "Insurance Auditor",
-    "MIS Executive",
-    "SAP Consultant",
-    "Billing Officer",
-    "Insurance Underwriter",
     "Invoicing Specialist",
-    "ERP Accountant"
+    "ERP Accountant",
+    "Banking Analyst",
+    "Billing Executive",
+    "Invoicing Supervisor",
+    "Insurance Underwriter"
   ],
   "used_ai_locations": [
-    "Malaysia",
-    "Mumbai",
-    "Kuwait",
-    "Jessore",
-    "Cox's Bazar",
+    "Bogra",
     "Dubai",
+    "Jessore",
+    "Singapore",
+    "Cox's Bazar",
+    "Mumbai",
+    "Malaysia",
     "Kolkata",
-    "Bogra"
+    "Kuwait"
   ],
   "last_keywords": [
-    "Accountant",
-    "Senior Accountant",
-    "Junior Accountant",
-    "Finance Officer",
-    "Finance Manager",
-    "Financial Analyst",
-    "Audit",
-    "Internal Auditor",
-    "Tax Accountant",
-    "Accounts Payable",
-    "Accounts Receivable",
-    "Bookkeeper",
-    "Billing Officer",
-    "Banking Analyst",
-    "Tax Consultant"
+    "Cost Accountant",
+    "Management Accountant",
+    "Payroll",
+    "Treasury",
+    "CFO",
+    "Chartered Accountant",
+    "ACCA",
+    "CPA",
+    "Budget Analyst",
+    "Compliance Officer",
+    "Accounting",
+    "Finance",
+    "Invoicing Supervisor"
   ],
   "last_locations": [
     "Bangladesh",
-    "Narayanganj",
-    "Comilla",
-    "Rangpur"
+    "Barisal",
+    "Mymensingh",
+    "Dhaka",
+    "Singapore"
   ],
   "last_ai_keywords": [
-    "Billing Officer",
-    "Banking Analyst",
-    "Tax Consultant"
+    "Invoicing Supervisor"
   ],
-  "last_ai_locations": [],
+  "last_ai_locations": [
+    "Singapore"
+  ],
   "jobs_found_this_run": 0
 }
