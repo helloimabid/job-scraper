@@ -1,13 +1,11 @@
 """
-linkedin_improved.py — Scrape LinkedIn job listings using multiple strategies
+linkedin_improved.py — Scrape LinkedIn job listings with robust unavailable job filtering
 
-Strategy:
-  1. Direct scraping of LinkedIn's public job search page (no login required)
-  2. Tavily Search for discovering additional LinkedIn job URLs
-  3. Google Custom Search as backup for finding LinkedIn jobs
-  4. Playwright for extracting job details from individual pages
-
-This combines the best of all approaches for maximum job discovery.
+Key Improvements:
+- Enhanced detection of unavailable jobs using multiple methods
+- Early filtering during discovery phase
+- HTML structure-based detection
+- Prevents unavailable jobs from being added to the database
 """
 
 import asyncio
@@ -422,6 +420,76 @@ def clean_text(text):
 
 
 # ══════════════════════════════════════════════════════════════════
+# IMPROVED: Enhanced Unavailable Job Detection
+# ══════════════════════════════════════════════════════════════════
+
+def is_job_unavailable(content, soup=None):
+    """
+    Return True if LinkedIn indicates the job is unavailable.
+    Uses multiple detection methods for reliability.
+    
+    Args:
+        content: HTML content as string
+        soup: BeautifulSoup object (optional, for structure-based detection)
+    
+    Returns:
+        bool: True if job is unavailable
+    """
+    if not content:
+        return False
+    
+    # Method 1: Text-based detection (case-insensitive)
+    text = content.lower()
+    text_markers = (
+        "no longer accepting applications",
+        "this job is no longer available",
+        "job you were looking for is no longer available",
+        "no longer available",
+        "page not found",
+        "job posting has expired",
+        "position has been filled",
+        "this job posting is no longer active",
+        "application deadline has passed",
+    )
+    
+    if any(marker in text for marker in text_markers):
+        return True
+    
+    # Method 2: HTML structure-based detection (more reliable)
+    if soup:
+        # Check for error SVG with LinkedIn's specific ID
+        error_svg = soup.find('svg', {'id': 'signal-error-small'})
+        if error_svg:
+            # Look for accompanying error message in parent elements
+            parent = error_svg.find_parent()
+            if parent:
+                error_text = parent.get_text(' ', strip=True).lower()
+                if any(marker in error_text for marker in text_markers):
+                    return True
+        
+        # Check for aria-live="assertive" divs (LinkedIn uses these for error notifications)
+        error_divs = soup.find_all('div', {'aria-live': 'assertive'})
+        for div in error_divs:
+            div_text = div.get_text(' ', strip=True).lower()
+            if any(marker in div_text for marker in text_markers):
+                return True
+        
+        # Check for error paragraphs with the unavailability message
+        error_messages = soup.find_all('p', string=lambda s: s and any(marker in s.lower() for marker in text_markers))
+        if error_messages:
+            return True
+        
+        # Check for specific LinkedIn error classes
+        error_containers = soup.find_all('div', class_=lambda c: c and any(x in str(c).lower() for x in ['error', 'unavailable', 'closed']))
+        for container in error_containers:
+            container_text = container.get_text(' ', strip=True).lower()
+            if any(marker in container_text for marker in text_markers):
+                return True
+    
+    return False
+
+
+# ══════════════════════════════════════════════════════════════════
 # Strategy 1: Direct LinkedIn Search Page Scraping
 # ══════════════════════════════════════════════════════════════════
 
@@ -699,12 +767,13 @@ async def discover_jobs_via_google(keyword, location):
 
 
 # ══════════════════════════════════════════════════════════════════
-# Job Detail Extraction
+# IMPROVED: Job Detail Extraction with Enhanced Unavailability Check
 # ══════════════════════════════════════════════════════════════════
 
 async def extract_job_detail(page, job_info):
     """
     Extract detailed information from a LinkedIn job posting page.
+    IMPROVED: Better detection of unavailable jobs using multiple methods.
     """
     url = job_info['url']
     
@@ -717,8 +786,8 @@ async def extract_job_detail(page, job_info):
         content = await page.content()
         soup = BeautifulSoup(content, 'html.parser')
         
-        # Detect unavailable/expired jobs early
-        if is_job_unavailable(content):
+        # CRITICAL: Check if job is unavailable FIRST with enhanced detection
+        if is_job_unavailable(content, soup):
             return {
                 'url': url,
                 'job_id': job_info['job_id'],
@@ -846,7 +915,10 @@ async def extract_job_detail(page, job_info):
 
 
 async def worker(browser, queue, results, existing_map):
-    """Worker that processes job detail extraction."""
+    """
+    Worker that processes job detail extraction.
+    IMPROVED: Filters out unavailable jobs completely.
+    """
     page = await browser.new_page()
     
     # Randomize user agent
@@ -854,6 +926,8 @@ async def worker(browser, queue, results, existing_map):
         'User-Agent': random.choice(USER_AGENTS),
         'Accept-Language': 'en-US,en;q=0.9',
     })
+    
+    unavailable_count = 0
     
     while not queue.empty():
         job_info = await queue.get()
@@ -866,42 +940,35 @@ async def worker(browser, queue, results, existing_map):
             
             data = await extract_job_detail(page, job_info)
             
+            # CRITICAL: Skip unavailable jobs - don't add them to results
             if data and data.get('unavailable'):
-                print(f"  🗑 [{job_info['job_id']}] Unavailable, skipping")
+                unavailable_count += 1
+                print(f"  🗑️ [{job_info['job_id']}] Unavailable - SKIPPED")
             elif data and data.get('job_title'):
                 results.append(data)
-                print(f"  ✔ [{len(results)}] {data['job_title'][:50]} — {data['company_name']}")
+                print(f"  ✅ [{len(results)}] {data['job_title'][:50]} — {data['company_name']}")
             else:
-                print(f"  ⚠ [{job_info['job_id']}] Could not extract details")
+                print(f"  ⚠️  [{job_info['job_id']}] Could not extract details")
         
         except Exception as e:
-            print(f"  ✖ [{job_info['job_id']}] Error: {e}")
+            print(f"  ❌ [{job_info['job_id']}] Error: {e}")
         
         queue.task_done()
         
         # Small delay between requests
         await asyncio.sleep(random.uniform(1, 2))
     
+    if unavailable_count > 0:
+        print(f"  📊 Worker filtered out {unavailable_count} unavailable jobs")
+    
     await page.close()
 
 
-def is_job_unavailable(content):
-    """Return True if LinkedIn indicates the job is unavailable."""
-    if not content:
-        return False
-    text = content.lower()
-    markers = (
-        "no longer accepting applications",
-        "this job is no longer available",
-        "job you were looking for is no longer available",
-        "no longer available",
-        "page not found",
-    )
-    return any(m in text for m in markers)
-
-
 async def check_job_availability(page, job_info):
-    """Check whether a job application is still available."""
+    """
+    Check whether a job application is still available.
+    IMPROVED: Uses enhanced detection method.
+    """
     url = job_info.get('url', '')
     if not url:
         return False
@@ -910,13 +977,19 @@ async def check_job_availability(page, job_info):
         await page.goto(url, timeout=60000, wait_until="domcontentloaded")
         await asyncio.sleep(2)
         content = await page.content()
-        return not is_job_unavailable(content)
+        soup = BeautifulSoup(content, 'html.parser')
+        
+        # Use enhanced detection
+        return not is_job_unavailable(content, soup)
     except Exception:
         return True
 
 
 async def availability_worker(browser, queue, unavailable_ids):
-    """Worker that checks availability of existing jobs."""
+    """
+    Worker that checks availability of existing jobs.
+    IMPROVED: Uses enhanced detection.
+    """
     page = await browser.new_page()
     await page.set_extra_http_headers({
         'User-Agent': random.choice(USER_AGENTS),
@@ -929,9 +1002,9 @@ async def availability_worker(browser, queue, unavailable_ids):
             available = await check_job_availability(page, job_info)
             if not available:
                 unavailable_ids.add(job_info.get('job_id'))
-                print(f"  🗑 [{job_info.get('job_id')}] Unavailable")
+                print(f"  🗑️ [{job_info.get('job_id')}] Unavailable")
         except Exception as e:
-            print(f"  ✖ [{job_info.get('job_id')}] Availability check error: {e}")
+            print(f"  ❌ [{job_info.get('job_id')}] Availability check error: {e}")
         queue.task_done()
         await asyncio.sleep(random.uniform(1, 2))
 
@@ -944,7 +1017,7 @@ async def availability_worker(browser, queue, unavailable_ids):
 
 async def main():
     print("=" * 60)
-    print("🔵 LinkedIn Job Scraper v3.0 (AI-Powered + Rotation)")
+    print("🔵 LinkedIn Job Scraper v3.1 (Enhanced Unavailable Filtering)")
     print("=" * 60)
 
     # ── Load state & determine this run's keyword/location batch ──
@@ -1019,8 +1092,9 @@ async def main():
             existing_jobs = [j for j in existing_jobs if j.get('job_id') not in unavailable_ids]
             existing_ids = {job.get('job_id') for job in existing_jobs if job.get('job_id')}
 
+            print(f"   🗑️  Removed {len(removed_jobs)} unavailable jobs from database")
             for rj in removed_jobs:
-                print(f"  🗑 {rj.get('job_title', 'Unknown')}")
+                print(f"      - {rj.get('job_title', 'Unknown')}")
 
     # ── Phase 1: Discovery (rotated keywords + AI keywords) ──
     print("\n" + "=" * 60)
@@ -1085,8 +1159,8 @@ async def main():
 
     new_jobs = [j for j in discovered_jobs if j['job_id'] in new_ids]
 
-    print(f"   ✚ New: {len(new_jobs)}")
-    print(f"   ✖ Removed candidates: {len(removed_ids)}")
+    print(f"   ✅ New: {len(new_jobs)}")
+    print(f"   🔄 Removed candidates: {len(removed_ids)}")
     print(f"   ● Unchanged: {len(current_ids & existing_ids)}")
 
     # ── Phase 2: Check removed candidates availability ──
@@ -1124,8 +1198,9 @@ async def main():
             removed_jobs.extend([j for j in existing_jobs if j.get('job_id') in unavailable_ids])
             existing_jobs = [j for j in existing_jobs if j.get('job_id') not in unavailable_ids]
 
-            for rj in removed_jobs:
-                print(f"  🗑 {rj.get('job_title', 'Unknown')}")
+            print(f"   🗑️  Removed {len([j for j in existing_jobs if j.get('job_id') in unavailable_ids])} more unavailable jobs")
+            for rj in [j for j in existing_jobs if j.get('job_id') in unavailable_ids]:
+                print(f"      - {rj.get('job_title', 'Unknown')}")
 
     # ── Phase 3: Extract details for new jobs ──
     new_results = []
@@ -1133,6 +1208,7 @@ async def main():
         print("\n" + "=" * 60)
         print(f"Phase 3: Extracting {len(new_jobs)} New Job Details")
         print("=" * 60)
+        print("⚠️  Note: Unavailable jobs will be automatically filtered out")
 
         async with Stealth().use_async(async_playwright()) as p:
             browser = await p.chromium.launch(
@@ -1187,6 +1263,7 @@ async def main():
     state["last_ai_keywords"] = ai_keywords
     state["last_ai_locations"] = ai_locations
     state["jobs_found_this_run"] = len(new_results)
+    state["unavailable_filtered"] = len(new_jobs) - len(new_results)  # Track how many were filtered
     save_state(state)
 
     print("\n" + "=" * 60)
@@ -1200,6 +1277,7 @@ async def main():
     print(f"   AI-suggested locations: {len(ai_locations)}")
     print(f"   Total jobs in DB: {len(final_results)}")
     print(f"   Added this run: {len(new_results)}")
+    print(f"   Filtered (unavailable): {len(new_jobs) - len(new_results)}")
     print(f"   Removed this run: {len(removed_jobs)}")
     print(f"   Output: {OUTPUT_FILE}")
     next_batch, next_idx, _ = get_keyword_batch(run_count + 1)
