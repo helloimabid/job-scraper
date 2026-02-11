@@ -1,6 +1,6 @@
 {
-  "run_count": 7,
-  "last_run": "2026-02-11T10:40:29.961423",
+  "run_count": 8,
+  "last_run": "2026-02-11T15:51:26.201207",
   "ai_keywords_cache": [],
   "used_ai_keywords": [
     "MIS Analyst",
@@ -30,55 +30,56 @@
     "Treasury Accountant"
   ],
   "used_ai_locations": [
-    "Nairobi, Kenya",
-    "Ho Chi Minh City, Vietnam",
-    "Casablanca, Morocco",
-    "Bucharest, Romania",
-    "Riyadh, Saudi Arabia",
-    "Doha, Qatar",
-    "Accra, Ghana",
-    "Cairo, Egypt",
-    "Colombo, Sri Lanka",
-    "Lagos, Nigeria",
-    "Warsaw, Poland",
-    "Muscat, Oman",
-    "Abu Dhabi, UAE",
-    "Hanoi, Vietnam",
-    "Manila, Philippines",
-    "Cape Town, South Africa",
-    "Budapest, Hungary",
-    "Jakarta, Indonesia",
-    "Dubai, UAE",
-    "Johannesburg, South Africa",
-    "Singapore",
-    "Kuwait City, Kuwait",
-    "Istanbul, Turkey",
     "Kuala Lumpur, Malaysia",
-    "Oman"
+    "Accra, Ghana",
+    "Riyadh, Saudi Arabia",
+    "Singapore",
+    "Jakarta, Indonesia",
+    "Johannesburg, South Africa",
+    "Muscat, Oman",
+    "Cape Town, South Africa",
+    "Hanoi, Vietnam",
+    "Lagos, Nigeria",
+    "Cairo, Egypt",
+    "Budapest, Hungary",
+    "Kuwait City, Kuwait",
+    "Ho Chi Minh City, Vietnam",
+    "Warsaw, Poland",
+    "Bucharest, Romania",
+    "Dubai, UAE",
+    "Manila, Philippines",
+    "Istanbul, Turkey",
+    "Istanbul, Türkiye",
+    "Doha, Qatar",
+    "Abu Dhabi, UAE",
+    "Oman",
+    "Casablanca, Morocco",
+    "Nairobi, Kenya",
+    "Colombo, Sri Lanka"
   ],
   "last_keywords": [
-    "Finance Officer",
-    "Finance Manager",
-    "Financial Analyst",
-    "Finance Executive",
-    "Budget Analyst",
-    "Internal Auditor",
-    "External Auditor",
-    "Audit Associate",
-    "Audit Manager",
-    "Compliance Officer",
-    "Risk Advisor"
+    "Payroll Officer",
+    "Payroll Accountant",
+    "Accounts Payable",
+    "Accounts Receivable",
+    "AR AP Officer",
+    "Treasury Officer",
+    "Treasury Analyst",
+    "Investment Analyst",
+    "Portfolio Manager",
+    "Chief Financial Officer"
   ],
   "last_locations": [
     "Bangladesh",
-    "Dhaka, Bangladesh",
-    "Chittagong, Bangladesh",
-    "Sylhet, Bangladesh"
+    "Rajshahi, Bangladesh",
+    "Khulna, Bangladesh",
+    "Barisal, Bangladesh",
+    "Istanbul, Türkiye"
   ],
-  "last_ai_keywords": [
-    "Risk Advisor"
+  "last_ai_keywords": [],
+  "last_ai_locations": [
+    "Istanbul, Türkiye"
   ],
-  "last_ai_locations": [],
-  "jobs_found_this_run": 585,
-  "unavailable_filtered": 12
+  "jobs_found_this_run": 262,
+  "unavailable_filtered": 19
 }
