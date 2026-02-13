@@ -1,6 +1,6 @@
 {
-  "run_count": 10,
-  "last_run": "2026-02-12T16:09:12.260658",
+  "run_count": 11,
+  "last_run": "2026-02-13T04:33:36.110530",
   "ai_keywords_cache": [],
   "used_ai_keywords": [
     "Compliance Manager",
@@ -63,33 +63,25 @@
     "Warsaw, Poland"
   ],
   "last_keywords": [
-    "Tax Specialist",
-    "CPA",
-    "ACCA",
-    "CA",
-    "CMA",
-    "Chartered Accountant",
     "Accountant",
     "Senior Accountant",
     "Junior Accountant",
     "Staff Accountant",
-    "MIS Coordinator"
+    "Account Executive",
+    "Cost Accountant",
+    "Tax Accountant",
+    "Management Accountant",
+    "Financial Accountant",
+    "Audit Accountant"
   ],
   "last_locations": [
     "Bangladesh",
-    "Gulshan, Dhaka",
-    "Banani, Dhaka",
-    "Motijheel, Dhaka",
-    "Phnom Penh, Cambodia",
-    "Bratislava, Slovakia"
+    "Dhanmondi, Dhaka",
+    "Uttara, Dhaka",
+    "Gazipur, Bangladesh"
   ],
-  "last_ai_keywords": [
-    "MIS Coordinator"
-  ],
-  "last_ai_locations": [
-    "Phnom Penh, Cambodia",
-    "Bratislava, Slovakia"
-  ],
-  "jobs_found_this_run": 230,
-  "unavailable_filtered": 23
+  "last_ai_keywords": [],
+  "last_ai_locations": [],
+  "jobs_found_this_run": 38,
+  "unavailable_filtered": 24
 }
