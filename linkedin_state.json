@@ -1,6 +1,6 @@
 {
-  "run_count": 72,
-  "last_run": "2026-03-16T15:49:28.299697",
+  "run_count": 73,
+  "last_run": "2026-03-17T04:44:35.138500",
   "ai_keywords_cache": [],
   "used_ai_keywords": [
     "SAP FICO",
@@ -112,31 +112,25 @@
     "Bratislava, Slovakia"
   ],
   "last_keywords": [
-    "Finance Officer",
-    "Finance Manager",
-    "Financial Analyst",
-    "Finance Executive",
-    "Budget Analyst",
-    "Internal Auditor",
-    "External Auditor",
-    "Audit Associate",
-    "Audit Manager",
-    "Compliance Officer",
-    "Comptable"
+    "Payroll Officer",
+    "Payroll Accountant",
+    "Accounts Payable",
+    "Accounts Receivable",
+    "AR AP Officer",
+    "Treasury Officer",
+    "Treasury Analyst",
+    "Investment Analyst",
+    "Portfolio Manager",
+    "Chief Financial Officer"
   ],
   "last_locations": [
     "Bangladesh",
-    "Narayanganj, Bangladesh",
-    "Comilla, Bangladesh",
-    "Chattogram, Bangladesh",
-    "Mumbai, India"
+    "Dhaka, Bangladesh",
+    "Chittagong, Bangladesh",
+    "Sylhet, Bangladesh"
   ],
-  "last_ai_keywords": [
-    "Comptable"
-  ],
-  "last_ai_locations": [
-    "Mumbai, India"
-  ],
-  "jobs_found_this_run": 457,
-  "unavailable_filtered": 118
+  "last_ai_keywords": [],
+  "last_ai_locations": [],
+  "jobs_found_this_run": 270,
+  "unavailable_filtered": 95
 }
