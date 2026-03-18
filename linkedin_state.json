@@ -1,6 +1,6 @@
 {
-  "run_count": 74,
-  "last_run": "2026-03-17T16:09:53.875399",
+  "run_count": 75,
+  "last_run": "2026-03-18T04:22:29.616268",
   "ai_keywords_cache": [],
   "used_ai_keywords": [
     "SAP FICO",
@@ -112,25 +112,25 @@
     "Bratislava, Slovakia"
   ],
   "last_keywords": [
-    "CFO",
-    "Finance Director",
-    "Accounting Manager",
-    "Finance Controller",
-    "Bookkeeper",
-    "Accounts Assistant",
-    "Accounting Clerk",
-    "Tax Consultant",
-    "Tax Manager",
-    "VAT Consultant"
+    "Tax Specialist",
+    "CPA",
+    "ACCA",
+    "CA",
+    "CMA",
+    "Chartered Accountant",
+    "Accountant",
+    "Senior Accountant",
+    "Junior Accountant",
+    "Staff Accountant"
   ],
   "last_locations": [
     "Bangladesh",
-    "Rajshahi, Bangladesh",
-    "Khulna, Bangladesh",
-    "Barisal, Bangladesh"
+    "Rangpur, Bangladesh",
+    "Mymensingh, Bangladesh",
+    "Dhaka"
   ],
   "last_ai_keywords": [],
   "last_ai_locations": [],
-  "jobs_found_this_run": 69,
-  "unavailable_filtered": 40
+  "jobs_found_this_run": 52,
+  "unavailable_filtered": 22
 }
