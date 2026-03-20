@@ -1,6 +1,6 @@
 {
-  "run_count": 78,
-  "last_run": "2026-03-19T15:46:04.041506",
+  "run_count": 79,
+  "last_run": "2026-03-20T04:09:20.980881",
   "ai_keywords_cache": [],
   "used_ai_keywords": [
     "Business Analyst",
@@ -114,28 +114,25 @@
     "Bratislava, Slovakia"
   ],
   "last_keywords": [
-    "Payroll Officer",
-    "Payroll Accountant",
-    "Accounts Payable",
-    "Accounts Receivable",
-    "AR AP Officer",
-    "Treasury Officer",
-    "Treasury Analyst",
-    "Investment Analyst",
-    "Portfolio Manager",
-    "Chief Financial Officer",
-    "Treasurer"
+    "CFO",
+    "Finance Director",
+    "Accounting Manager",
+    "Finance Controller",
+    "Bookkeeper",
+    "Accounts Assistant",
+    "Accounting Clerk",
+    "Tax Consultant",
+    "Tax Manager",
+    "VAT Consultant"
   ],
   "last_locations": [
     "Bangladesh",
-    "Narayanganj, Bangladesh",
-    "Comilla, Bangladesh",
-    "Chattogram, Bangladesh"
+    "Dhaka, Bangladesh",
+    "Chittagong, Bangladesh",
+    "Sylhet, Bangladesh"
   ],
-  "last_ai_keywords": [
-    "Treasurer"
-  ],
+  "last_ai_keywords": [],
   "last_ai_locations": [],
-  "jobs_found_this_run": 31,
-  "unavailable_filtered": 64
+  "jobs_found_this_run": 229,
+  "unavailable_filtered": 66
 }
