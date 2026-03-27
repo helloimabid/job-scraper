@@ -1,6 +1,6 @@
 {
-  "run_count": 93,
-  "last_run": "2026-03-27T04:25:52.542691",
+  "run_count": 94,
+  "last_run": "2026-03-27T15:27:40.772808",
   "ai_keywords_cache": [],
   "used_ai_keywords": [
     "Fiscal Specialist",
@@ -127,28 +127,25 @@
     "Phnom Penh, Cambodia"
   ],
   "last_keywords": [
-    "Payroll Officer",
-    "Payroll Accountant",
-    "Accounts Payable",
-    "Accounts Receivable",
-    "AR AP Officer",
-    "Treasury Officer",
-    "Treasury Analyst",
-    "Investment Analyst",
-    "Portfolio Manager",
-    "Chief Financial Officer"
+    "CFO",
+    "Finance Director",
+    "Accounting Manager",
+    "Finance Controller",
+    "Bookkeeper",
+    "Accounts Assistant",
+    "Accounting Clerk",
+    "Tax Consultant",
+    "Tax Manager",
+    "VAT Consultant"
   ],
   "last_locations": [
     "Bangladesh",
-    "Rangpur, Bangladesh",
-    "Mymensingh, Bangladesh",
-    "Dhaka",
-    "Athens, Greece"
+    "Gulshan, Dhaka",
+    "Banani, Dhaka",
+    "Motijheel, Dhaka"
   ],
   "last_ai_keywords": [],
-  "last_ai_locations": [
-    "Athens, Greece"
-  ],
-  "jobs_found_this_run": 306,
-  "unavailable_filtered": 82
+  "last_ai_locations": [],
+  "jobs_found_this_run": 19,
+  "unavailable_filtered": 69
 }
