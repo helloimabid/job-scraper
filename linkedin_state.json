@@ -1,6 +1,6 @@
 {
-  "run_count": 97,
-  "last_run": "2026-03-29T04:51:04.451566",
+  "run_count": 98,
+  "last_run": "2026-03-29T15:26:04.269082",
   "ai_keywords_cache": [],
   "used_ai_keywords": [
     "MIS Coordinator",
@@ -130,30 +130,25 @@
     "Santiago, Chile"
   ],
   "last_keywords": [
-    "Finance Officer",
-    "Finance Manager",
-    "Financial Analyst",
-    "Finance Executive",
-    "Budget Analyst",
-    "Internal Auditor",
-    "External Auditor",
-    "Audit Associate",
-    "Audit Manager",
-    "Compliance Officer",
-    "Forex Trader",
-    "Funds Manager"
+    "Payroll Officer",
+    "Payroll Accountant",
+    "Accounts Payable",
+    "Accounts Receivable",
+    "AR AP Officer",
+    "Treasury Officer",
+    "Treasury Analyst",
+    "Investment Analyst",
+    "Portfolio Manager",
+    "Chief Financial Officer"
   ],
   "last_locations": [
     "Bangladesh",
-    "Dhaka, Bangladesh",
-    "Chittagong, Bangladesh",
-    "Sylhet, Bangladesh"
+    "Rajshahi, Bangladesh",
+    "Khulna, Bangladesh",
+    "Barisal, Bangladesh"
   ],
-  "last_ai_keywords": [
-    "Forex Trader",
-    "Funds Manager"
-  ],
+  "last_ai_keywords": [],
   "last_ai_locations": [],
-  "jobs_found_this_run": 273,
-  "unavailable_filtered": 97
+  "jobs_found_this_run": 40,
+  "unavailable_filtered": 60
 }
