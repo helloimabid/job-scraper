@@ -1,6 +1,6 @@
 {
-  "run_count": 119,
-  "last_run": "2026-04-09T04:39:10.682644",
+  "run_count": 120,
+  "last_run": "2026-04-09T15:52:30.835532",
   "ai_keywords_cache": [],
   "used_ai_keywords": [
     "SAP Consultant",
@@ -135,28 +135,25 @@
     "Bratislava, Slovakia"
   ],
   "last_keywords": [
-    "CFO",
-    "Finance Director",
-    "Accounting Manager",
-    "Finance Controller",
-    "Bookkeeper",
-    "Accounts Assistant",
-    "Accounting Clerk",
-    "Tax Consultant",
-    "Tax Manager",
-    "VAT Consultant"
+    "Tax Specialist",
+    "CPA",
+    "ACCA",
+    "CA",
+    "CMA",
+    "Chartered Accountant",
+    "Accountant",
+    "Senior Accountant",
+    "Junior Accountant",
+    "Staff Accountant"
   ],
   "last_locations": [
     "Bangladesh",
-    "Dhanmondi, Dhaka",
-    "Uttara, Dhaka",
-    "Gazipur, Bangladesh",
-    "Abu Dhabi, UAE"
+    "Narayanganj, Bangladesh",
+    "Comilla, Bangladesh",
+    "Chattogram, Bangladesh"
   ],
   "last_ai_keywords": [],
-  "last_ai_locations": [
-    "Abu Dhabi, UAE"
-  ],
-  "jobs_found_this_run": 167,
-  "unavailable_filtered": 95
+  "last_ai_locations": [],
+  "jobs_found_this_run": 36,
+  "unavailable_filtered": 43
 }
