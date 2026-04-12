@@ -1,6 +1,6 @@
 {
-  "run_count": 138,
-  "last_run": "2026-04-12T04:44:39.786901",
+  "run_count": 139,
+  "last_run": "2026-04-12T15:25:37.209064",
   "ai_keywords_cache": [],
   "used_ai_keywords": [
     "Funding Manager",
@@ -69,29 +69,26 @@
     "Dubai"
   ],
   "last_keywords": [
-    "Cost Accountant",
-    "Management Accountant",
-    "Payroll",
-    "Treasury",
-    "CFO",
-    "Chartered Accountant",
-    "ACCA",
-    "CPA",
-    "Budget Analyst",
-    "Compliance Officer",
-    "Accounting",
-    "Finance",
-    "Funding Specialist"
+    "Accountant",
+    "Senior Accountant",
+    "Junior Accountant",
+    "Finance Officer",
+    "Finance Manager",
+    "Financial Analyst",
+    "Audit",
+    "Internal Auditor",
+    "Tax Accountant",
+    "Accounts Payable",
+    "Accounts Receivable",
+    "Bookkeeper"
   ],
   "last_locations": [
     "Bangladesh",
-    "Rajshahi",
-    "Khulna",
-    "Gazipur"
+    "Narayanganj",
+    "Comilla",
+    "Rangpur"
   ],
-  "last_ai_keywords": [
-    "Funding Specialist"
-  ],
+  "last_ai_keywords": [],
   "last_ai_locations": [],
   "jobs_found_this_run": 0
 }
